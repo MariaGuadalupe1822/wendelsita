@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Wendelsita</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=VT323&family=Pixelify+Sans:wght@400..700&family=EB+Garamond:ital,wght@0,400..600;1,400..500&family=Special+Gothic+Expanded+One&display=swap" rel="stylesheet">
+<style>
+:root{--c1:#d8b89d;--c2:#c9a983;--osc:#8d6e63;--neg:#111;--blanco:#e6ded2;--rosa:#f7a9b9;--amar:#ffe29c;--verde:#c9d8b6;--b:3px solid #111;--s:5px 5px 0 #111;--s2:3px 3px 0 #111}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{background-color:var(--c1);
+background-image:radial-gradient(#111 2.5px,transparent 3px),radial-gradient(#fff 2.5px,transparent 3px);
+background-size:36px 36px;background-position:0 0,18px 18px;
+color:#111;font-family:"VT323",monospace;font-size:1.15rem;line-height:1.1;min-height:100dvh;display:flex;flex-direction:column;align-items:center;padding:clamp(1rem,2vw,2rem) clamp(.5rem,2vw,1.5rem)}
+header,main,footer{width:min(1100px,96vw)}
+header,section,footer{background:linear-gradient(180deg,#e6ded2,var(--c2));border:var(--b);border-radius:8px;box-shadow:var(--s)}
+header{display:flex;flex-direction:column;align-items:center;text-align:center;gap:.8rem;padding:1.2rem;margin-bottom:2rem}
+.titulo{font-family:"Special Gothic Expanded One",system-ui;font-weight:400;font-size:clamp(1.8rem,6vw,3.6rem);text-transform:uppercase;line-height:.95;text-shadow:3px 3px 0 #e6ded2,6px 6px 0 #111;-webkit-text-stroke:1.5px #111;color:#bfa17f}
+.subtitulo{font-family:"Pixelify Sans",monospace;background:#111;color:var(--blanco);padding:.25rem .8rem;box-shadow:3px 3px 0 #e6ded2,5px 5px 0 #111;transform:rotate(-1deg)}
+.dedicatoria{font-family:"EB Garamond",serif;font-style:italic;font-size:1.15rem;max-width:60ch;color:#3c2f24}
+.etiquetas{display:flex;flex-wrap:wrap;justify-content:center;gap:.4rem .5rem}
+.tag{padding:.15rem .5rem;border:2px solid #111;box-shadow:var(--s2);background:var(--verde);display:inline-block}
+.tag:nth-child(odd){background:var(--amar);transform:rotate(1.5deg)}.tag:nth-child(even){background:var(--rosa);transform:rotate(-1.2deg)}
+.hbun svg{width:84px;display:block}
+main{display:flex;flex-direction:column;gap:2rem}
+section{padding:1.3rem;display:flex;flex-direction:column;gap:1.2rem}
+h2{font-family:"Pixelify Sans",monospace;font-size:clamp(1.2rem,4vw,1.9rem);text-transform:uppercase;background:#111;color:var(--blanco);padding:.25rem .8rem;box-shadow:3px 3px 0 #e6ded2,5px 5px 0 #111;display:inline-block;align-self:flex-start}
+.desc{font-family:"EB Garamond",serif;font-size:1.08rem;color:#3c2f24;max-width:70ch}
+button,.btn{font-family:"Pixelify Sans",monospace;font-size:1rem;text-transform:uppercase;padding:.4rem .8rem;background:var(--blanco);border:var(--b);box-shadow:var(--s2);cursor:pointer;display:inline-flex;align-items:center;gap:.4rem;color:#111}
+button:hover,.btn:hover{transform:translate(-1px,-1px);box-shadow:4px 4px 0 #111}
+button:active,.btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 #111}
+button:disabled{opacity:.45;cursor:not-allowed}
+/* tocadiscos */
+.pw{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,92vw),1fr));gap:1.5rem;align-items:start}
+.tt{display:flex;flex-direction:column;align-items:center;gap:1rem;padding:1rem;background:radial-gradient(circle at 50% 30%,#e6ded2,#c9a983 60%,#bfa17f);border:var(--b);border-radius:10px;box-shadow:var(--s);position:relative}
+.plato{width:clamp(220px,60vw,300px);aspect-ratio:1;border-radius:50%;border:4px solid #111;background:repeating-radial-gradient(#111 0 2px,#1d1815 3px 4px);position:relative;display:flex;align-items:center;justify-content:center;box-shadow:6px 6px 0 #111,inset 0 0 0 6px #e6ded2}
+.plato.on{animation:sp 3.2s linear infinite}@keyframes sp{to{transform:rotate(360deg)}}
+.label{position:absolute;width:38%;aspect-ratio:1;border-radius:50%;border:2px solid #111;background:radial-gradient(circle at 50% 40%,#e6ded2,#c9a983);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.label svg{width:78%}
+.brazo{position:absolute;width:110px;height:12px;border:3px solid #111;background:linear-gradient(90deg,#e6ded2,#c9a983);border-radius:8px;top:30px;right:26px;transform-origin:right center;transform:rotate(-25deg);transition:transform .5s;box-shadow:3px 3px 0 #111;pointer-events:none}
+.brazo.on{transform:rotate(12deg)}
+.brazo::after{content:"";position:absolute;left:-8px;top:-5px;width:14px;height:18px;background:#111;border-radius:3px}
+.ctl{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem}
+.b-play{background:var(--verde)}.b-pause{background:var(--rosa)}.b-stop{background:#f2d7b6}
+.info{display:flex;flex-direction:column;gap:.7rem;padding:1rem;background:#e6ded2;border:2px solid #111;box-shadow:var(--s2)}
+.ct{font-family:"Pixelify Sans",monospace;font-size:1.3rem;text-transform:uppercase}
+.ca{font-family:"EB Garamond",serif;font-style:italic;font-size:1.05rem}
+.pl{display:flex;flex-direction:column;gap:.5rem;max-height:300px;overflow:auto;padding:.6rem;background:rgba(230,222,210,.6);border:2px dashed #111}
+.it{display:flex;align-items:center;justify-content:space-between;gap:.6rem;padding:.4rem .6rem;background:#e6ded2;border:2px solid #111;box-shadow:var(--s2);cursor:pointer}
+.it:hover{background:#f2e9dc}.it.act{background:var(--verde)}.it small{display:block;opacity:.8}
+.row{display:flex;flex-wrap:wrap;gap:.5rem}
+input[type=text]{flex:1;min-width:170px;font-family:"VT323",monospace;font-size:1.1rem;padding:.35rem .5rem;border:2px solid #111;background:#fff}
+.ytbox{width:100%;border:3px solid #111;box-shadow:var(--s2);background:#111}.ytbox iframe{display:block;width:100%}
+.msg{font-size:1rem;min-height:1.1em}
+/* favs */
+.favs{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.9rem}
+.fav{border:2px solid #111;box-shadow:var(--s);padding:.8rem;text-align:center;background:#f5f1ec;transform:rotate(var(--r))}
+.fav span{font-size:1.9rem}.fav b{display:block;font-family:"Pixelify Sans",monospace;text-transform:uppercase;font-weight:600}
+.fav small{font-family:"EB Garamond",serif;font-style:italic;font-size:.95rem;color:#3c2f24}
+/* fotos */
+.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(150px,42vw),1fr));gap:1.1rem}
+.pol{background:#f5f1ec;border:2px solid #111;padding:.55rem .55rem 1.2rem;box-shadow:var(--s);display:flex;flex-direction:column;gap:.5rem;transform:rotate(var(--r));cursor:pointer;transition:transform .18s}
+.pol:hover{transform:rotate(0) scale(1.03)}
+.fr{width:100%;aspect-ratio:1;border:2px solid #111;background:#d8b89d center/cover;display:flex;align-items:center;justify-content:center;text-align:center;color:#5d4037;font-family:"Pixelify Sans",monospace;padding:.4rem}
+.pie{font-family:"EB Garamond",serif;font-style:italic;text-align:center;font-size:.95rem;color:#3c2f24}
+/* juego */
+.game{position:relative;width:min(380px,100%);margin:auto}
+canvas{display:block;width:100%;border:4px solid #111;box-shadow:var(--s);touch-action:none;border-radius:6px}
+.ov{position:absolute;inset:4px;background:rgba(17,17,17,.86);color:#e6ded2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;text-align:center;padding:1.2rem}
+.ov.hide{display:none}.ov h3{font-family:"Pixelify Sans",monospace;font-size:1.6rem;text-transform:uppercase}
+footer{margin-top:2rem;padding:1rem;text-align:center;display:flex;flex-direction:column;gap:.6rem;align-items:center}
+.nota{font-size:.95rem;padding:.4rem .6rem;background:#e6ded2;border:2px dashed #111;max-width:80ch}
+</style></head><body>
+
+<header>
+  <div class="hbun" id="hb"></div>
+  <h1 class="titulo">PARA <span id="nm">WENDELSITA</span></h1>
+  <p class="subtitulo">un regalito con todo lo que tú amas</p>
+  <p class="dedicatoria">Casi es tu cumple y quería hacerte un rinconcito bonito, con tus discos, tus versos, tus juegos, tu conejita y todo ese mundo que te hace brillar.</p>
+  <div class="etiquetas"><span class="tag">Taylor Swift</span><span class="tag">Siddhartha</span><span class="tag">Guns N' Roses</span><span class="tag">Death Poet</span><span class="tag">Call Me By Your Name</span><span class="tag">Pizarnik</span><span class="tag">Miffy</span><span class="tag">Y2K</span></div>
+</header>
+
+<main>
+<section>
+  <h2>💿 Toca Disco</h2>
+  <p class="desc">Elige una canción de la lista y dale play. Gira el disco, baja el brazo y déjate llevar.</p>
+  <div class="pw">
+    <div class="tt">
+      <div class="brazo" id="brazo"></div>
+      <div class="plato" id="plato"><div class="label" id="lb"></div></div>
+      <div class="ctl">
+        <button class="b-play" id="bPlay">▶ Play</button>
+        <button class="b-pause" id="bPause" disabled>⏸ Pausa</button>
+        <button class="b-stop" id="bStop" disabled>⏹ Stop</button>
+      </div>
+    </div>
+    <div class="info">
+      <div><p class="ct" id="tit">—</p><p class="ca" id="art">—</p></div>
+      <p class="msg" id="msg"></p>
+      <div class="ytbox"><div id="yt"></div></div>
+      <div class="pl" id="pl"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>🖤 Lo que te hace ser tú</h2>
+  <div class="favs" id="favs"></div>
+</section>
+
+<section>
+  <h2>📷 Espacio de Fotos</h2>
+  <p class="desc">Un muro de polaroids. Toca cada una para poner una foto.</p>
+  <div class="gal" id="gal"></div>
+</section>
+
+<section>
+  <h2>🎮 Atrapa lo que amas</h2>
+  <p class="desc">Mueve a la conejita con el dedo o el mouse. Atrapa tus cosas favoritas y esquiva las rosas marchitas 🥀</p>
+  <div class="game">
+    <canvas id="cv" width="360" height="520"></canvas>
+    <div class="ov" id="ov"><h3 id="ovT">¡A jugar!</h3><div id="ovM" style="font-size:1.2rem">Atrapa 20 cosas bonitas para ver tu sorpresa 🎁</div><button id="startBtn">Empezar</button></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <p class="desc" style="text-align:center">Para quien ama los versos de Pizarnik, los vinilos y a Miffy 🤎</p>
+  <p>Hecho con mucho cariño para ti. ¡Feliz casi-cumpleaños!</p>
+  <p class="nota">Tip: pega el link de YouTube de cada canción en <code>link</code> dentro de <code>SONGS</code>. Al darle Play suena aquí mismo, sin salir de la página.</p>
+</footer>
+
+<audio id="audio"></audio>
+<script>
+/* ===== PERSONALIZA ===== */
+const NOMBRE="WENDELSITA";
+const MENSAJE="¡Feliz cumpleaños! Eres increíble y te quiero muchísimo 🤎";
+// mp3: nombre del archivo mp3 (en la MISMA carpeta que este HTML). Si hay mp3 suena ese; si no, usa el link de YouTube.
+// Pega en "link" el enlace de YouTube de cada canción (ej: "https://www.youtube.com/watch?v=XXXXXXXXXXX")
+const SONGS=[
+ {t:"Enjoy the silence",a:"Despeche mode",v:"Darks",q:"Despeche mode",link:"",mp3:"Depeche Mode - Enjoy The Silence Subtitulos Inglés y Español.mp3"},
+ {t:"Unicos",a:"Siddhartha",v:"nostalgia dulce",q:"Siddhartha cantante",link:"",mp3:"Siddhartha - Únicos (Letra).mp3"},
+ {t:"November Rain",a:"Guns N' Roses",v:"melancolía épica",q:"Guns N' Roses November Rain",link:"",mp3:"Guns N' Roses - November Rain.mp3"},
+ {t:"My love mine all mine",a:"Mitski",v:"etéreo, poético",q:"Dead Poets Society soundtrack",link:"",mp3:"Mitski - My Love Mine All Mine (Official Lyric Video).mp3"},
+ {t:"Mystery of Love",a:"Call Me By Your Name (OST)",v:"verano dorado",q:"Call Me By Your Name Mystery of Love",link:"https://youtu.be/4WTt69YO2VI",mp3:"Sufjan Stevens - Mystery of Love (From Call Me By Your Name Soundtrack).mp3"},
+ {t:"Canción sorpresa",a:"otss, pa que sea especial",v:"susurro poético",q:"The promise, i will ",link:"",mp3:"When In Rome - The Promise (Official Music Video).mp3"}
+];
+/* ======================= */
+const $=id=>document.getElementById(id);
+$('nm').textContent=NOMBRE;
+
+/* Conejita (dibujo propio) */
+const BUN=`<svg viewBox="0 0 100 124" xmlns="http://www.w3.org/2000/svg" stroke="#161110" stroke-width="3" stroke-linejoin="round"><rect x="29" y="3" width="14" height="42" rx="7" fill="#fff"/><rect x="57" y="3" width="14" height="42" rx="7" fill="#fff"/><rect x="33" y="10" width="6" height="26" rx="3" fill="#f2b8c0" stroke="none"/><rect x="61" y="10" width="6" height="26" rx="3" fill="#f2b8c0" stroke="none"/><path d="M28 100 L72 100 L84 121 L16 121 Z" fill="#a9744a"/><ellipse cx="50" cy="72" rx="32" ry="30" fill="#fff"/><circle cx="38" cy="68" r="3.4" fill="#161110" stroke="none"/><circle cx="62" cy="68" r="3.4" fill="#161110" stroke="none"/><circle cx="32" cy="80" r="5" fill="#f2b8c0" stroke="none"/><circle cx="68" cy="80" r="5" fill="#f2b8c0" stroke="none"/><path d="M44 78 q6 6 12 0" fill="none" stroke-linecap="round"/></svg>`;
+$('hb').innerHTML=BUN;$('lb').innerHTML=BUN;
+const bunImg=new Image();bunImg.src='data:image/svg+xml;utf8,'+encodeURIComponent(BUN);
+
+/* Favoritos */
+const F=[["💫","Taylor Swift","Para cada era de tu vida"],["🎤","Siddhartha","Letras que se quedan"],["🌹","Guns N' Roses","Volumen al máximo"],["🪶","Death Poet","Carpe diem"],["🍑","Call Me By Your Name","Un verano inolvidable"],["🌙","Pizarnik","Poesía que se siente"],["🐰","Miffy","Tierna y con carácter"]];
+$('favs').innerHTML=F.map((f,i)=>`<div class="fav" style="--r:${(i%2?1:-1)*(1+i%3)*.7}deg"><span>${f[0]}</span><b>${f[1]}</b><small>${f[2]}</small></div>`).join('');
+
+/* Tocadiscos: YouTube suena dentro de la página */
+const au=$('audio');au.onended=()=>{pick((cur+1)%SONGS.length);play()};
+let cur=0,playing=false,yt=null,ytReady=false,pending=false,loadedMp3='';
+function vid(u){const m=(u||'').match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([\w-]{11})/);return m?m[1]:''}
+function vis(on){playing=on;$('plato').classList.toggle('on',on);$('brazo').classList.toggle('on',on);$('bPlay').disabled=on;$('bPause').disabled=!on;$('bStop').disabled=!on}
+const tg=document.createElement('script');tg.src='https://www.youtube.com/iframe_api';document.head.appendChild(tg);
+window.onYouTubeIframeAPIReady=()=>{yt=new YT.Player('yt',{width:'100%',height:'150',playerVars:{playsinline:1,rel:0},events:{
+ onReady:()=>{ytReady=true;if(pending){pending=false;play()}},
+ onStateChange:e=>{if(e.data===1){vis(true);$('msg').textContent=''}else if(e.data===2)vis(false);else if(e.data===0){pick((cur+1)%SONGS.length);play()}},
+ onError:e=>{vis(false);$('msg').textContent=(location.protocol==='file:'?'Estás abriendo el archivo directo de la carpeta: YouTube lo bloquea así (error '+e.data+'). Súbelo a Netlify Drop o GitHub Pages y funcionará 💿':'Este video no permite reproducirse en otras páginas (error '+e.data+'). Prueba con otra versión 💿')}}})};
+function pick(i){cur=i;const s=SONGS[i];au.pause();if(ytReady&&yt.stopVideo)yt.stopVideo();vis(false);document.querySelector('.ytbox').style.display=s.mp3?'none':'block';
+ $('tit').textContent=s.t;$('art').textContent=s.a+' • '+s.v;$('msg').textContent='';
+ document.querySelectorAll('.it').forEach((e,k)=>e.classList.toggle('act',k==i))}
+function play(){const sg=SONGS[cur];
+ if(sg.mp3){if(loadedMp3!==sg.mp3){au.src=sg.mp3;loadedMp3=sg.mp3}
+  au.play().then(()=>{vis(true);$('msg').textContent=''}).catch(()=>{$('msg').textContent='No encontré "'+sg.mp3+'". Ponlo en la misma carpeta que el HTML y revisa que el nombre sea igual 💿'});return}
+ const id=vid(sg.link);
+ if(!id){$('msg').textContent='Esta canción aún no tiene link de YouTube 💫';return}
+ if(!ytReady){pending=true;$('msg').textContent='Cargando reproductor…';return}
+ const d=yt.getVideoData?yt.getVideoData():{};
+ d.video_id===id?yt.playVideo():yt.loadVideoById(id)}
+$('bPlay').onclick=play;
+$('bPause').onclick=()=>{if(SONGS[cur].mp3){au.pause();vis(false)}else if(ytReady)yt.pauseVideo()};
+$('bStop').onclick=()=>{au.pause();au.currentTime=0;if(ytReady)yt.stopVideo();vis(false)};
+SONGS.forEach((s,i)=>{const d=document.createElement('div');d.className='it';d.innerHTML=`<div><strong>${s.t}</strong><small>${s.a}</small></div><span>▶</span>`;d.onclick=()=>{pick(i);play()};$('pl').appendChild(d)});
+pick(0);
+
+/* Fotos */
+const pies=["guardar los momentos felices","coleccionar instantes","lo pequeño que se vuelve infinito","dorados, suaves y tuyos","versos y recuerdos","como un verano de CMBYN"];
+pies.forEach((p,i)=>{const l=document.createElement('label');l.className='pol';l.style.setProperty('--r',[-1.5,1.2,-.8][i%3]+'deg');
+ l.innerHTML=`<div class="fr">＋ foto</div><figcaption class="pie">${p}</figcaption><input type="file" accept="image/*" hidden>`;
+ l.querySelector('input').onchange=e=>{const f=e.target.files[0];if(!f)return;const b=l.querySelector('.fr');b.style.backgroundImage=`url(${URL.createObjectURL(f)})`;b.textContent=''};$('gal').appendChild(l)});
+
+/* Juego */
+const cv=$('cv'),x=cv.getContext('2d'),W=360,H=520;
+const GOOD=["🌹","🍑","🎵","📖","💖","🌙","🎸","💫"];
+let items,px,score,lives,run,last,spawn,speed,sparks;
+function reset(){items=[];sparks=[];px=W/2;score=0;lives=3;spawn=0}
+function move(cx){const r=cv.getBoundingClientRect();px=Math.max(34,Math.min(W-34,(cx-r.left)/r.width*W))}
+cv.addEventListener('pointermove',e=>move(e.clientX));cv.addEventListener('pointerdown',e=>move(e.clientX));
+function ov(t,m,b){$('ovT').textContent=t;$('ovM').textContent=m;$('startBtn').textContent=b;$('ov').classList.remove('hide')}
+$('startBtn').onclick=()=>{$('ov').classList.add('hide');if(lives<=0||score>=20)reset();if(!run){run=true;last=performance.now();requestAnimationFrame(loop)}};
+reset();
+function burst(a,b,c){for(let i=0;i<10;i++)sparks.push({x:a,y:b,vx:(Math.random()-.5)*260,vy:(Math.random()-.8)*220,l:.5,c})}
+function loop(t){if(!run)return;const dt=Math.min(.04,(t-last)/1000);last=t;
+ spawn-=dt;if(spawn<=0){spawn=Math.max(.38,.85-score*.02);const bad=Math.random()<.22;items.push({x:30+Math.random()*(W-60),y:-30,e:bad?"🥀":GOOD[Math.random()*GOOD.length|0],bad,r:(Math.random()-.5)*2,a:0})}
+ speed=130+score*5;
+ for(const it of items){it.y+=speed*dt;it.a+=it.r*dt;
+  if(it.y>H-95&&it.y<H-20&&Math.abs(it.x-px)<40&&!it.done){it.done=1;if(it.bad){lives--;burst(it.x,it.y,'#7a1f1f')}else{score++;burst(it.x,it.y,'#ffcf5a')}}
+  else if(it.y>H+30)it.done=1}
+ items=items.filter(i=>!i.done);sparks.forEach(s=>{s.x+=s.vx*dt;s.y+=s.vy*dt;s.l-=dt});sparks=sparks.filter(s=>s.l>0);
+ draw();
+ if(lives<=0){run=false;ov('Ups 🥀','Hiciste '+score+' puntos. ¡Inténtalo otra vez!','Reintentar');return}
+ if(score>=20){run=false;ov('🎉 ¡LO LOGRASTE! 🎉',MENSAJE,'Jugar de nuevo');return}
+ requestAnimationFrame(loop)}
+function draw(){
+ const g=x.createLinearGradient(0,0,0,H);g.addColorStop(0,'#3a261a');g.addColorStop(1,'#8a5a36');x.fillStyle=g;x.fillRect(0,0,W,H);
+ for(let i=0;i<W;i+=30)for(let j=0;j<H;j+=30){x.fillStyle=(i/30+j/30)%2?'rgba(255,255,255,.14)':'rgba(0,0,0,.22)';x.beginPath();x.arc(i+(j/30%2)*15,j,3.5,0,7);x.fill()}
+ x.textAlign='center';x.textBaseline='middle';x.font='30px serif';
+ for(const it of items){x.save();x.translate(it.x,it.y);x.rotate(Math.sin(it.a*3)*.4);x.fillText(it.e,0,0);x.restore()}
+ sparks.forEach(s=>{x.globalAlpha=Math.max(0,s.l*2);x.fillStyle=s.c;x.fillRect(s.x,s.y,5,5)});x.globalAlpha=1;
+ if(bunImg.complete)x.drawImage(bunImg,px-34,H-100,68,84);
+ x.fillStyle='#fbf3e7';x.font='bold 20px Courier New';x.textAlign='left';x.fillText('⭐ '+score+' / 20',12,24);
+ x.textAlign='right';x.fillText('❤️'.repeat(Math.max(0,lives)),W-12,24)}
+bunImg.onload=draw;draw();
+</script></body></html>
